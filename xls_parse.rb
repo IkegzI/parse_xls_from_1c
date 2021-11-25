@@ -1,4 +1,5 @@
 require "roo-xls"
+require "pry"
 
 class Parserxls
   def initialize(file_xls)
@@ -9,11 +10,10 @@ class Parserxls
 
   def parse
     @file.each_with_index do |cell, index|
-      index -= 1
       case index
       when 8
-        cell.each_with_index { |item, index_line| @hash_att[index_line - 1] = item unless item.nil? }
-      when 9..cell.size
+        cell.each_with_index { |item, index_line| @hash_att[index_line] = item unless item.nil? }
+      when 10..cell.size
         @hash_att.each do |key, value|
           @hash[cell[0]] ||= {}
           @hash[cell[0]][value] = cell[key] if key > 0
