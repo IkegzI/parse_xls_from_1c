@@ -2,5 +2,9 @@
 
 ЗАПУСК
 
-xls_parse.rb <full path xls>
+xls_parse.rb full_path_xls
+
+example:
+
+ruby xls_parse.rb /tmp/1.xls
 
